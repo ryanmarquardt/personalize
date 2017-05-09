@@ -1,6 +1,8 @@
 #!/bin/sh
 
 repository=git@github.com:ryanmarquardt/personalize.git
+name=${repository##*/}
+name=${target%.git}
 
 INSTALL_GIT="apt-get install git-core"
 
@@ -22,6 +24,13 @@ if ! git config --global --get user.email >/dev/null; then
     git config --global user.email $x
 fi
 
+# If a local repository exists here
+if [ -d personalize ]; then
+    # Update the repository
+    echo git pull
+    git pull
+else
 # Clone the repository
-echo git clone $repository
-git clone $repository
+    echo git clone $repository
+    git clone $repository
+fi

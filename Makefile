@@ -1,32 +1,17 @@
 
-LATEST_PYTHON=python3.6
 INSTALL=sudo apt install
-SSH_KEYTYPES=rsa ecdsa
+
+export INSTALL
 
 .PHONY: install install-vim install-python create-ssh-keys
 
 install: install-vim install-python create-ssh-keys
 
-# Vim
+install-vim:
+	cd modules/vim && $(MAKE) 
 
-install-vim: /usr/bin/vim $(HOME)/.vimrc
+install-python:
+	cd modules/python && $(MAKE)
 
-/usr/bin/vim:
-	$(INSTALL) vim
-
-$(HOME)/.vimrc:
-	cp resources/vim/vimrc $@
-
-# Latest python
-
-install-python: /usr/bin/$(LATEST_PYTHON)
-
-/usr/bin/$(LATEST_PYTHON):
-	$(INSTALL) $(LATEST_PYTHON)
-
-# Ssh Keys
-
-create-ssh-keys: $(patsubst %,$(HOME)/.ssh/id_%,$(SSH_KEYTYPES))
-
-$(HOME)/.ssh/id_%:
-	ssh-keygen -t $(patsubst $(HOME)/.ssh/id_%,%,$@) -N '' -f $@
+create-ssh-keys:
+	cd modules/ssh && $(MAKE)

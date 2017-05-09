@@ -17,7 +17,7 @@ Vim
 ===============
 
 Install the vim text editor if it isn't already available, and install
-``~/.vimrc`` from ``resources/vim/vimrc``::
+``~/.vimrc`` from ``modules/vim/vimrc``::
 
     make install-vim
 
@@ -33,9 +33,9 @@ Install the latest version (3.6 currently) of python::
 SSH Key Generation
 ==================
 
-Create new rsa and ecdsa keys for the local user::
+Create new ssh keys for the local user::
 
     make create-ssh-keys
 
 The types of keys generated are determined by the variable ``SSH_KEYTYPES``
-in ``Makefile``
+in ``modules/ssh/Makefile``. By default ``rsa`` and ``ecdsa`` keys are created.

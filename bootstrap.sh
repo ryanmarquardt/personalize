@@ -1,6 +1,6 @@
 #!/bin/sh
 
-repository=git@github.com:ryanmarquardt/personalize.git
+repository=https://github.com/ryanmarquardt/personalize.git
 name=${repository##*/}
 name=${target%.git}
 

@@ -1,15 +1,23 @@
 Download and run ``bootstrap.sh`` on any new server to make a local clone of
-this repository.
+this repository::
 
-Run ``make`` to apply all personalizations, or use one of the installation
-subcommands listed below
+    wget https://github.com/ryanmarquardt/personalize/raw/master/bootstrap.sh
+    /bin/sh bootstrap.sh
+    cd personalize
+    make
+
+Before cloning, ``bootstrap.sh`` ensures that git is installed locally and 
+that the user's name and email are set in the global git configuration.
+
+Running ``make`` applies all personalizations. Alternately, use one of the 
+subcommands listed below:
 
 
 Vim
 ===============
 
-Installs the vim text editor if it isn't already available, and installs the
-vimrc file found under ``resources/vim/vimrc``::
+Install the vim text editor if it isn't already available, and install
+``~/.vimrc`` from ``resources/vim/vimrc``::
 
     make install-vim
 
@@ -17,7 +25,7 @@ vimrc file found under ``resources/vim/vimrc``::
 Latest Python
 ==================
 
-Installs the latest version of python::
+Install the latest version (3.6 currently) of python::
 
     make install-python
 

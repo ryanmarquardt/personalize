@@ -1,9 +1,11 @@
 
 .PHONY: install-vim
 
-install-vim: /usr/bin/vim $(HOME)/.vimrc
+VIM=$(shell which vim)
 
-/usr/bin/vim:
+install-vim: $(VIM) $(HOME)/.vimrc
+
+$(VIM):
 	$(INSTALL) vim
 
 $(HOME)/.vimrc:

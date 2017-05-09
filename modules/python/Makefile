@@ -1,9 +1,10 @@
 
 LATEST_PYTHON=python3.6
+PYTHON=$(shell which $(LATEST_PYTHON))
 
 .PHONY: install-python
 
-install-python: /usr/bin/$(LATEST_PYTHON)
+install-python: $(PYTHON)
 
-/usr/bin/$(LATEST_PYTHON):
+$(PYTHON):
 	$(INSTALL) $(LATEST_PYTHON)

@@ -1,0 +1,22 @@
+syntax on
+set fileformat=unix
+set encoding=utf-8
+set number autoindent wrap smarttab modeline
+set shiftwidth=4 softtabstop=4 tabstop=4
+set expandtab
+set incsearch
+set showmatch
+filetype plugin on
+filetype on
+
+set cm=blowfish
+imap { {
+imap {<cr> {<cr>}<Up><End><cr><Tab>
+imap : :
+imap :<cr> :<cr><tab>
+imap <Home> <Esc>^i
+map <Home> ^
+imap <C-D> <esc>yypi
+map <C-D> yyp
+imap <C-T> <esc><up>ddpi
+map <C-T> <up>ddp
